@@ -1,0 +1,23 @@
+<div class="contenedor">
+	<h2>Agregar Producto</h2>
+
+	<div class="form">
+		<label>Nombre:</label>
+		<input type="text" [(ngModel)]="name">
+	</div>
+
+	<div class="form">
+		<label>Precio:</label>
+		<input type="number" [(ngModel)]="price">
+	</div>
+
+	<div *ngIf="name.trim() === '' && price > 0">
+		<p>El nombre es Obligatorio</p>
+	</div>
+
+	<div *ngIf="price <= 0 && name.trim() !== ''">
+		<p>El precio debe ser mayor a 0</p>
+	</div>
+
+	<app-action-button (action)="agregarProducto()" backgroundColor="#94D9FF" text="Agregar"></app-action-button>
+</div>

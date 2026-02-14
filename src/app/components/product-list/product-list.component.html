@@ -1,0 +1,15 @@
+<div class="contenedor">
+	<h2>Lista de Productos</h2>
+
+	<div *ngIf="products.length === 0">
+		No hay productos registrados
+	</div>
+
+	<ul *ngIf="products.length > 0">
+		<li *ngFor="let product of products">
+			<p>{{product.name}} - {{product.price}}</p>
+
+			<app-action-button (action)="eliminar(product.id)" backgroundColor="#94D9FF" text="Eliminar"></app-action-button>
+		</li>
+	</ul>
+</div>
